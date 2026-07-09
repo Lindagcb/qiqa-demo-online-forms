@@ -351,26 +351,94 @@
       </fieldset>
 
       <fieldset class="wide">
-        <legend>4. Application for hyperlipidaemia</legend>
-        <label>Current blood pressure <input name="current_blood_pressure"></label>
-        <label class="wide">Hyperlipidaemia supporting information 1 <textarea name="hyperlipidaemia_supporting_information_1"></textarea></label>
-        <label><input type="checkbox" name="apply_for_hyperlipidaemia"> Apply for hyperlipidaemia</label>
-        <label><input type="checkbox" name="hyperlipidaemia_smoker_ever_smoker"> Hyperlipidaemia: smoker/ever smoker</label>
-        <label><input type="checkbox" name="hypertension_treatment"> Hyperlipidaemia: on hypertension treatment</label>
+        <legend>4. Clinical and lifestyle information</legend>
+        <label>Current blood pressure <input name="latest_blood_pressure"></label>
+        <label>Weight <input name="current_weight"></label>
+        <label>HbA1c <input name="latest_hba1c"></label>
+        <label>Lipid profile <input name="latest_lipid_profile"></label>
+        <label>Renal function / eGFR <input name="latest_renal_function"></label>
+        <label>Thyroid function / TSH <input name="latest_thyroid_function"></label>
+        <label><input type="checkbox" name="current_smoker"> Current smoker</label>
+        <label><input type="checkbox" name="ex_smoker_or_ever_smoker"> Ex-smoker / ever smoker</label>
+        <label><input type="checkbox" name="alcohol_use"> Alcohol use documented</label>
+        <label><input type="checkbox" name="family_history_cardiovascular_disease"> Family history of cardiovascular disease</label>
+        <label class="wide">Relevant clinical history <textarea name="relevant_clinical_history"></textarea></label>
+        <label class="wide">Recent investigation summary <textarea name="recent_investigation_summary"></textarea></label>
       </fieldset>
 
       <fieldset class="wide">
-        <legend>5. Application for hypothyroidism</legend>
+        <legend>5. Chronic conditions requested</legend>
+        <label><input type="checkbox" name="requested_condition_hypothyroidism"> Hypothyroidism</label>
+        <label><input type="checkbox" name="requested_condition_hyperlipidaemia"> Hyperlipidaemia</label>
+        <label><input type="checkbox" name="requested_condition_hypertension"> Hypertension</label>
+        <label><input type="checkbox" name="requested_condition_diabetes_type_2"> Diabetes type 2</label>
+        <label><input type="checkbox" name="requested_condition_copd"> Chronic obstructive pulmonary disease</label>
+        <label><input type="checkbox" name="requested_condition_asthma"> Asthma</label>
+        <label><input type="checkbox" name="requested_condition_rheumatoid_arthritis"> Rheumatoid arthritis</label>
+        <label><input type="checkbox" name="requested_condition_epilepsy"> Epilepsy</label>
+        <label><input type="checkbox" name="requested_condition_cardiac_disease"> Cardiac disease</label>
+        <label><input type="checkbox" name="requested_condition_chronic_kidney_disease"> Chronic kidney disease</label>
+        <label><input type="checkbox" name="requested_condition_gerd"> Gastro-oesophageal reflux disease</label>
+        <label><input type="checkbox" name="requested_condition_sleep_disorder"> Sleep disorder / insomnia</label>
+        <label class="wide">Other chronic condition requested <input name="other_chronic_condition_requested"></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>6. Application for hyperlipidaemia</legend>
+        <label>Current blood pressure <input name="hyperlipidaemia_current_blood_pressure"></label>
+        <label class="wide">Hyperlipidaemia supporting information 1 <textarea name="hyperlipidaemia_supporting_information_1"></textarea></label>
+        <label class="wide">Hyperlipidaemia supporting information 2 <textarea name="hyperlipidaemia_supporting_information_2"></textarea></label>
+        <label><input type="checkbox" name="apply_for_hyperlipidaemia"> Apply for hyperlipidaemia</label>
+        <label><input type="checkbox" name="hyperlipidaemia_risk_gte_20_percent"> Hyperlipidaemia: cardiovascular risk >= 20%</label>
+        <label><input type="checkbox" name="hyperlipidaemia_risk_gte_30_percent"> Hyperlipidaemia: cardiovascular risk >= 30%</label>
+        <label><input type="checkbox" name="hyperlipidaemia_smoker_ever_smoker"> Hyperlipidaemia: smoker/ever smoker</label>
+        <label><input type="checkbox" name="hypertension_treatment"> Hyperlipidaemia: on hypertension treatment</label>
+        <label><input type="checkbox" name="hyperlipidaemia_familial"> Hyperlipidaemia: familial hyperlipidaemia diagnosed</label>
+        <label><input type="checkbox" name="hyperlipidaemia_diabetes_type_2"> Hyperlipidaemia: diabetes type 2 history</label>
+        <label><input type="checkbox" name="hyperlipidaemia_stroke"> Hyperlipidaemia: stroke</label>
+        <label><input type="checkbox" name="hyperlipidaemia_tia"> Hyperlipidaemia: TIA</label>
+        <label><input type="checkbox" name="hyperlipidaemia_coronary_artery_disease"> Hyperlipidaemia: coronary artery disease</label>
+        <label><input type="checkbox" name="hyperlipidaemia_chronic_renal_disease"> Hyperlipidaemia: chronic renal disease</label>
+        <label><input type="checkbox" name="hyperlipidaemia_peripheral_arterial_disease"> Hyperlipidaemia: peripheral arterial disease</label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>7. Application for diabetes type 2</legend>
+        <label><input type="checkbox" name="diabetes_type_2_fasting_glucose_gte_7"> Diabetes type 2: fasting glucose >= 7.0 mmol/L</label>
+        <label><input type="checkbox" name="diabetes_type_2_hba1c_gte_6_5"> Diabetes type 2: HbA1c >= 6.5%</label>
+        <label>Latest fasting glucose <input name="latest_fasting_glucose"></label>
+        <label>Latest HbA1c <input name="latest_diabetes_hba1c"></label>
+        <label class="wide">Diabetes supporting information <textarea name="diabetes_supporting_information"></textarea></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>8. Application for hypothyroidism</legend>
         <label><input type="checkbox" name="apply_for_hypothyroidism"> Apply for hypothyroidism</label>
         <label><input type="checkbox" name="hypothyroidism_diagnosed_more_than_five_years"> Hypothyroidism: diagnosed more than five years ago and initial diagnostic results unavailable</label>
+        <label><input type="checkbox" name="hypothyroidism_thyroidectomy"> Hypothyroidism: thyroidectomy</label>
+        <label><input type="checkbox" name="hypothyroidism_radioactive_iodine"> Hypothyroidism: treated with radioactive iodine</label>
         <label><input type="checkbox" name="hypothyroidism_hashimotos_thyroiditis"> Hypothyroidism: Hashimoto's thyroiditis</label>
         <label><input type="checkbox" name="hypothyroidism_raised_tsh_reduced_t4"> Hypothyroidism: raised TSH and reduced T4</label>
         <label><input type="checkbox" name="hypothyroidism_raised_tsh_normal_t4_antibodies"> Hypothyroidism: raised TSH, normal T4, and raised thyroid antibodies</label>
         <label><input type="checkbox" name="hypothyroidism_tsh_gt_10"> Hypothyroidism: TSH &gt; 10 mIU/L on two or more occasions at least three months apart with normal T4</label>
+        <label>Latest TSH <input name="latest_tsh"></label>
+        <label>Latest free T4 <input name="latest_free_t4"></label>
+        <label class="wide">Hypothyroidism supporting information <textarea name="hypothyroidism_supporting_information"></textarea></label>
       </fieldset>
 
       <fieldset class="wide">
-        <legend>6. Medicine required</legend>
+        <legend>9. Other chronic disease details</legend>
+        <label>Respiratory diagnosis <input name="respiratory_diagnosis"></label>
+        <label>Respiratory medication / inhaler <input name="respiratory_medication"></label>
+        <label>Rheumatology diagnosis <input name="rheumatology_diagnosis"></label>
+        <label>Rheumatology medication <input name="rheumatology_medication"></label>
+        <label>Cardiac / renal diagnosis <input name="cardiac_renal_diagnosis"></label>
+        <label>Cardiac / renal medication <input name="cardiac_renal_medication"></label>
+        <label class="wide">Other chronic disease supporting information <textarea name="other_chronic_disease_supporting_information"></textarea></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>10. Medicine required</legend>
         <div class="medicineTable">
           <div class="medicineHeader">
             <span>Row</span>
@@ -448,7 +516,7 @@
       </fieldset>
 
       <fieldset class="wide">
-        <legend>7. Doctor declaration</legend>
+        <legend>11. Doctor declaration</legend>
         <label class="wide"><input type="checkbox" name="doctor_declaration"> I confirm that the information is true, complete and correct.</label>
         <label>Doctor declaration date <input name="doctor_declaration_date_repeat"></label>
       </fieldset>
