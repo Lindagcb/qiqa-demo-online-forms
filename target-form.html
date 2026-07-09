@@ -1,0 +1,457 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <title>Medical Aid Online Form Test</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, Arial, sans-serif;
+        color: #12203a;
+        background: #eef4fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(6, 24, 50, 0.92), rgba(8, 57, 94, 0.76)),
+          url("https://images.unsplash.com/photo-1579684385127-1ef15d508118?auto=format&fit=crop&w=1800&q=80");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        min-height: 270px;
+        padding: 34px 42px 72px;
+      }
+
+      .heroBar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .brandMark {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: #ffffff;
+        color: #0b4d89;
+        font-weight: 900;
+      }
+
+      .statusPill {
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .heroContent {
+        max-width: 760px;
+        margin-top: 48px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #bfdbfe;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .heroCopy {
+        margin: 14px 0 0;
+        max-width: 650px;
+        color: #dbeafe;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      .shell {
+        max-width: 1120px;
+        margin: -46px auto 56px;
+        padding: 0 22px;
+      }
+
+      form {
+        background: #fff;
+        border: 1px solid #dbe5f1;
+        border-radius: 10px;
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
+        overflow: hidden;
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 0;
+      }
+
+      fieldset {
+        border: 0;
+        border-bottom: 1px solid #e5edf6;
+        margin: 0;
+        padding: 24px 26px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 16px 20px;
+      }
+
+      fieldset:last-of-type {
+        border-bottom: 0;
+      }
+
+      legend {
+        float: left;
+        width: 100%;
+        margin: 0 0 18px;
+        padding: 0;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: #31577d;
+      }
+
+      legend::after {
+        content: "";
+        display: block;
+        width: 54px;
+        height: 3px;
+        margin-top: 9px;
+        border-radius: 999px;
+        background: #2563eb;
+      }
+
+      label {
+        display: grid;
+        gap: 7px;
+        font-size: 13px;
+        font-weight: 800;
+        color: #18263c;
+      }
+
+      input,
+      textarea,
+      select {
+        min-height: 40px;
+        padding: 9px 11px;
+        border: 1px solid #cbd8e7;
+        border-radius: 6px;
+        background: #fff;
+        color: #10203a;
+        font: inherit;
+        font-weight: 500;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      input:focus,
+      textarea:focus,
+      select:focus {
+        border-color: #2563eb;
+        box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+      }
+
+      textarea {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .wide {
+        grid-column: 1 / -1;
+      }
+
+      label.wide:has(input[type="checkbox"]) {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        border: 1px solid #dbe7f5;
+        background: #f8fbff;
+        border-radius: 8px;
+        padding: 12px;
+      }
+
+      input[type="checkbox"] {
+        min-height: 0;
+        width: 16px;
+        height: 16px;
+        margin-top: 2px;
+        accent-color: #2563eb;
+      }
+
+      .medicineTable {
+        display: grid;
+        grid-column: 1 / -1;
+        gap: 10px;
+      }
+
+      .medicineHeader,
+      .medicineRow {
+        display: grid;
+        grid-template-columns: 90px 1.1fr 1.4fr 0.8fr 0.8fr;
+        gap: 12px;
+        align-items: end;
+      }
+
+      .medicineHeader {
+        align-items: center;
+        border-bottom: 1px solid #dbe5f1;
+        padding-bottom: 8px;
+        color: #31577d;
+        font-size: 11px;
+        font-weight: 900;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      .medicineRow {
+        border: 1px solid #e2eaf4;
+        border-radius: 8px;
+        background: #f8fbff;
+        padding: 12px;
+      }
+
+      .medicineRowLabel {
+        align-self: center;
+        color: #31577d;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .medicineRow label {
+        gap: 5px;
+        font-size: 12px;
+      }
+
+      button {
+        margin: 24px 26px 28px;
+        justify-self: end;
+        padding: 12px 18px;
+        border: 0;
+        border-radius: 8px;
+        background: #0f172a;
+        color: #fff;
+        font-weight: 800;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          padding: 24px 22px 68px;
+        }
+
+        .heroBar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        fieldset {
+          grid-template-columns: 1fr;
+          padding: 20px;
+        }
+
+        .medicineHeader {
+          display: none;
+        }
+
+        .medicineRow {
+          grid-template-columns: 1fr;
+        }
+
+        button {
+          margin: 20px;
+          width: calc(100% - 40px);
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="heroBar">
+        <div class="brand">
+          <span class="brandMark">Q</span>
+          QIQA test form
+        </div>
+        <span class="statusPill">HTML form filling demo</span>
+      </div>
+      <div class="heroContent">
+        <p class="eyebrow">Discovery CIB workflow</p>
+        <h1>Chronic Illness Benefit online form test</h1>
+        <p class="heroCopy">
+          A controlled HTML recreation of the interactive fields used to test QIQA Chrome extension detection, review, and fill behaviour.
+        </p>
+      </div>
+    </section>
+
+    <main class="shell">
+    <form id="authorisation-form" action="/should-not-submit" method="post">
+      <fieldset class="wide">
+        <legend>1. Patient's details</legend>
+        <label>Patient initials <input name="patient_initials"></label>
+        <label>Patient first names <input name="patient_first_names"></label>
+        <label>Patient surname <input name="patient_surname"></label>
+        <label>ID or passport number <input name="id_or_passport_number"></label>
+        <label>Membership number <input name="membership_number"></label>
+        <label>Dependent code <input name="dependent_code"></label>
+        <label>Patient declaration date <input name="patient_declaration_date"></label>
+        <label>Patient email <input name="patient_email" type="email"></label>
+        <label>Patient cellphone code <input name="patient_cellphone_code"></label>
+        <label>Patient cellphone number <input name="patient_cellphone_number"></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>Member's acceptance and permission</legend>
+        <label class="wide"><input type="checkbox" name="member_acceptance"> I acknowledge that I have read and understood the member acceptance and permission conditions.</label>
+        <label>Patient declaration date <input name="patient_declaration_date_repeat"></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>2. Doctor's details</legend>
+        <label>Doctor surname <input name="doctor_surname"></label>
+        <label>Doctor first names <input name="doctor_first_names"></label>
+        <label>Doctor BHF practice number <input name="doctor_bhf_practice_number"></label>
+        <label>Doctor speciality <input name="doctor_speciality"></label>
+        <label>Doctor telephone code <input name="doctor_telephone_code"></label>
+        <label>Doctor telephone number <input name="doctor_telephone_number"></label>
+        <label>Doctor email <input name="doctor_email" type="email"></label>
+        <label>Doctor declaration date <input name="doctor_declaration_date"></label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>9. Application for hyperlipidaemia</legend>
+        <label>Current blood pressure <input name="current_blood_pressure"></label>
+        <label class="wide">Hyperlipidaemia supporting information 1 <textarea name="hyperlipidaemia_supporting_information_1"></textarea></label>
+        <label><input type="checkbox" name="apply_for_hyperlipidaemia"> Apply for hyperlipidaemia</label>
+        <label><input type="checkbox" name="hyperlipidaemia_smoker_ever_smoker"> Hyperlipidaemia: smoker/ever smoker</label>
+        <label><input type="checkbox" name="hypertension_treatment"> Hyperlipidaemia: on hypertension treatment</label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>10. Application for hypothyroidism</legend>
+        <label><input type="checkbox" name="apply_for_hypothyroidism"> Apply for hypothyroidism</label>
+        <label><input type="checkbox" name="hypothyroidism_diagnosed_more_than_five_years"> Hypothyroidism: diagnosed more than five years ago and initial diagnostic results unavailable</label>
+        <label><input type="checkbox" name="hypothyroidism_hashimotos_thyroiditis"> Hypothyroidism: Hashimoto's thyroiditis</label>
+        <label><input type="checkbox" name="hypothyroidism_raised_tsh_reduced_t4"> Hypothyroidism: raised TSH and reduced T4</label>
+        <label><input type="checkbox" name="hypothyroidism_raised_tsh_normal_t4_antibodies"> Hypothyroidism: raised TSH, normal T4, and raised thyroid antibodies</label>
+        <label><input type="checkbox" name="hypothyroidism_tsh_gt_10"> Hypothyroidism: TSH &gt; 10 mIU/L on two or more occasions at least three months apart with normal T4</label>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>12. Medicine required</legend>
+        <div class="medicineTable">
+          <div class="medicineHeader">
+            <span>Row</span>
+            <span>ICD-10 / date</span>
+            <span>Condition</span>
+            <span>Medication</span>
+            <span>Duration</span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">1</div>
+            <div>
+              <label>ICD-10 code <input name="medicine_row_1_icd10_code"></label>
+              <label>Date first diagnosed <input name="medicine_row_1_date_first_diagnosed"></label>
+            </div>
+            <label>Condition <input name="medicine_row_1_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_1_medicine_strength_dosage"></label>
+            <div>
+              <label>Years used <input name="medicine_row_1_years_used"></label>
+              <label>Months used <input name="medicine_row_1_months_used"></label>
+            </div>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">2</div>
+            <label>ICD-10 code <input name="medicine_row_2_icd10_code"></label>
+            <label>Condition <input name="medicine_row_2_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_2_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">3</div>
+            <label>ICD-10 code <input name="medicine_row_3_icd10_code"></label>
+            <label>Condition <input name="medicine_row_3_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_3_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">4</div>
+            <label>ICD-10 code <input name="medicine_row_4_icd10_code"></label>
+            <label>Condition <input name="medicine_row_4_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_4_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">5</div>
+            <label>ICD-10 code <input name="medicine_row_5_icd10_code"></label>
+            <label>Condition <input name="medicine_row_5_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_5_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">6</div>
+            <label>ICD-10 code <input name="medicine_row_6_icd10_code"></label>
+            <label>Condition <input name="medicine_row_6_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_6_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+          <div class="medicineRow">
+            <div class="medicineRowLabel">7</div>
+            <label>ICD-10 code <input name="medicine_row_7_icd10_code"></label>
+            <label>Condition <input name="medicine_row_7_condition"></label>
+            <label>Medicine / strength / dosage <input name="medicine_row_7_medicine_strength_dosage"></label>
+            <span></span>
+          </div>
+        </div>
+      </fieldset>
+
+      <fieldset class="wide">
+        <legend>Doctor declaration</legend>
+        <label class="wide"><input type="checkbox" name="doctor_declaration"> I confirm that the information is true, complete and correct.</label>
+        <label>Doctor declaration date <input name="doctor_declaration_date_repeat"></label>
+      </fieldset>
+
+      <button type="submit" class="wide">Manual submit button</button>
+    </form>
+    </main>
+
+    <script>
+      document.querySelector("form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("Manual submit clicked. The extension should never trigger this.");
+      });
+    </script>
+  </body>
+</html>

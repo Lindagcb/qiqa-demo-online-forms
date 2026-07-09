@@ -1,0 +1,453 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>QIQA Online Medical Intake Test Form</title>
+    <style>
+      :root {
+        color-scheme: light;
+        font-family: Inter, Arial, sans-serif;
+        color: #10203a;
+        background: #eef4fb;
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      body {
+        margin: 0;
+      }
+
+      .hero {
+        background:
+          linear-gradient(90deg, rgba(7, 28, 51, 0.92), rgba(15, 72, 98, 0.72)),
+          url("https://images.unsplash.com/photo-1581056771107-24ca5f033842?auto=format&fit=crop&w=1800&q=80");
+        background-size: cover;
+        background-position: center;
+        color: #fff;
+        min-height: 292px;
+        padding: 34px 42px 76px;
+      }
+
+      .heroBar {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        font-weight: 900;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        font-size: 12px;
+      }
+
+      .brandMark {
+        width: 34px;
+        height: 34px;
+        border-radius: 8px;
+        display: grid;
+        place-items: center;
+        background: #fff;
+        color: #0f5d72;
+        font-weight: 900;
+      }
+
+      .statusPill {
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        background: rgba(255, 255, 255, 0.12);
+        border-radius: 999px;
+        padding: 8px 12px;
+        font-size: 12px;
+        font-weight: 800;
+      }
+
+      .heroContent {
+        max-width: 760px;
+        margin-top: 48px;
+      }
+
+      .eyebrow {
+        margin: 0 0 10px;
+        font-size: 12px;
+        font-weight: 900;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #bae6fd;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: 42px;
+        line-height: 1.05;
+        letter-spacing: 0;
+      }
+
+      .heroCopy {
+        margin: 14px 0 0;
+        max-width: 650px;
+        color: #e0f2fe;
+        font-size: 16px;
+        line-height: 1.55;
+      }
+
+      main {
+        max-width: 1120px;
+        margin: -48px auto 60px;
+        padding: 0 22px;
+      }
+
+      form {
+        background: #fff;
+        border: 1px solid #dbe5f1;
+        border-radius: 10px;
+        box-shadow: 0 24px 70px rgba(15, 23, 42, 0.16);
+        overflow: hidden;
+      }
+
+      fieldset {
+        border: 0;
+        border-bottom: 1px solid #e5edf6;
+        margin: 0;
+        padding: 24px 26px;
+      }
+
+      fieldset:last-of-type {
+        border-bottom: 0;
+      }
+
+      legend {
+        float: left;
+        width: 100%;
+        margin: 0 0 18px;
+        padding: 0;
+        font-size: 12px;
+        letter-spacing: 0.16em;
+        text-transform: uppercase;
+        font-weight: 900;
+        color: #31577d;
+      }
+
+      legend::after {
+        content: "";
+        display: block;
+        width: 54px;
+        height: 3px;
+        margin-top: 9px;
+        border-radius: 999px;
+        background: #0891b2;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 14px 18px;
+      }
+
+      label {
+        display: grid;
+        gap: 6px;
+        font-size: 13px;
+        font-weight: 800;
+        color: #18263c;
+      }
+
+      input,
+      select,
+      textarea {
+        width: 100%;
+        min-height: 40px;
+        border: 1px solid #cbd8e7;
+        border-radius: 6px;
+        padding: 9px 11px;
+        background: #fff;
+        color: #10203a;
+        font: inherit;
+        font-weight: 500;
+        outline: none;
+        transition: border-color 0.15s ease, box-shadow 0.15s ease;
+      }
+
+      input:focus,
+      select:focus,
+      textarea:focus {
+        border-color: #0891b2;
+        box-shadow: 0 0 0 3px rgba(8, 145, 178, 0.13);
+      }
+
+      textarea {
+        min-height: 92px;
+        resize: vertical;
+      }
+
+      .wide {
+        grid-column: 1 / -1;
+      }
+
+      .options {
+        display: grid;
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 12px;
+      }
+
+      .options label {
+        display: flex;
+        align-items: flex-start;
+        gap: 10px;
+        min-height: 48px;
+        border: 1px solid #dbe7f5;
+        background: #f8fbff;
+        border-radius: 8px;
+        padding: 12px;
+        font-weight: 650;
+      }
+
+      .options input {
+        width: auto;
+        min-height: 0;
+        height: 16px;
+        margin-top: 2px;
+        accent-color: #0891b2;
+      }
+
+      .actions {
+        display: flex;
+        justify-content: flex-end;
+        padding: 24px 26px 28px;
+        border-top: 1px solid #e5edf6;
+      }
+
+      button {
+        border: 0;
+        border-radius: 8px;
+        background: #172033;
+        color: #fff;
+        padding: 12px 18px;
+        font-weight: 800;
+        box-shadow: 0 10px 24px rgba(15, 23, 42, 0.18);
+      }
+
+      @media (max-width: 760px) {
+        .hero {
+          padding: 24px 22px 70px;
+        }
+
+        .heroBar {
+          align-items: flex-start;
+          flex-direction: column;
+        }
+
+        h1 {
+          font-size: 32px;
+        }
+
+        main {
+          padding: 0 14px;
+        }
+
+        fieldset {
+          padding: 20px;
+        }
+
+        .grid,
+        .options {
+          grid-template-columns: 1fr;
+        }
+
+        .actions {
+          padding: 20px;
+        }
+
+        button {
+          width: 100%;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <section class="hero">
+      <div class="heroBar">
+        <div class="brand">
+          <span class="brandMark">Q</span>
+          QIQA test form
+        </div>
+        <span class="statusPill">External HTML form demo</span>
+      </div>
+      <div class="heroContent">
+        <p class="eyebrow">Online form intake workflow</p>
+        <h1>Medical intake online form test</h1>
+        <p class="heroCopy">
+          A controlled external-form page for testing QIQA field detection, local demographic matching, LLM-assisted clinical extraction, and extension filling.
+        </p>
+      </div>
+    </section>
+
+    <main>
+      <form id="medical-intake-form" action="/manual-submit-only" method="post">
+        <fieldset>
+          <legend>Patient details</legend>
+          <div class="grid">
+            <label>First Name
+              <input id="first_1" name="q1_name[first]" autocomplete="given-name">
+            </label>
+            <label>Last Name
+              <input id="last_1" name="q1_name[last]" autocomplete="family-name">
+            </label>
+            <label>Date of Birth
+              <input id="dob_2" name="q2_dateOfBirth" placeholder="YYYY-MM-DD">
+            </label>
+            <label>Gender
+              <select id="gender_3" name="q3_gender">
+                <option value="">Select</option>
+                <option value="Female">Female</option>
+                <option value="Male">Male</option>
+                <option value="Other">Other</option>
+              </select>
+            </label>
+            <label>Hospital or folder number
+              <input id="folder_4" name="q4_hospitalNumber">
+            </label>
+            <label>ID or passport number
+              <input id="id_5" name="q5_idOrPassport">
+            </label>
+            <label>Email
+              <input id="email_6" name="q6_email" type="email" autocomplete="email">
+            </label>
+            <label>Phone Number
+              <input id="phone_7" name="q7_phoneNumber[full]" type="tel" placeholder="(000) 000-0000">
+            </label>
+            <label class="wide">Address
+              <input id="address_8" name="q8_address[addr_line1]" autocomplete="street-address">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Medical aid details</legend>
+          <div class="grid">
+            <label>Medical aid scheme
+              <input id="medical_aid_9" name="q9_medicalAidScheme">
+            </label>
+            <label>Membership number
+              <input id="membership_10" name="q10_membershipNumber">
+            </label>
+            <label>Dependent code
+              <input id="dependent_11" name="q11_dependentCode">
+            </label>
+            <label>Authorisation type
+              <select id="auth_type_12" name="q12_authorisationType">
+                <option value="">Select</option>
+                <option value="Admission">Admission</option>
+                <option value="Procedure authorisation">Procedure authorisation</option>
+                <option value="Chronic medication">Chronic medication</option>
+              </select>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Clinical details</legend>
+          <div class="grid">
+            <label class="wide">Primary diagnosis
+              <input id="diagnosis_13" name="q13_primaryDiagnosis">
+            </label>
+            <label>ICD-10 code
+              <input id="icd10_14" name="q14_icd10Code">
+            </label>
+            <label>Procedure or treatment
+              <input id="procedure_15" name="q15_procedureOrTreatment">
+            </label>
+            <label>Procedure date
+              <input id="procedure_date_16" name="q16_procedureDate" placeholder="YYYY-MM-DD">
+            </label>
+            <label class="wide">Clinical summary
+              <textarea id="clinical_summary_17" name="q17_clinicalSummary"></textarea>
+            </label>
+            <label class="wide">Motivation / reason for request
+              <textarea id="motivation_18" name="q18_motivation"></textarea>
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Medical history</legend>
+          <div class="options">
+            <label><input id="history_hypertension" type="checkbox" name="q19_historyHypertension" value="Yes"> Hypertension</label>
+            <label><input id="history_diabetes" type="checkbox" name="q20_historyDiabetes" value="Yes"> Diabetes</label>
+            <label><input id="history_cardiac" type="checkbox" name="q21_historyCardiacDisease" value="Yes"> Cardiac disease</label>
+            <label><input id="history_renal" type="checkbox" name="q22_historyRenalDisease" value="Yes"> Renal disease</label>
+            <label><input id="history_smoker" type="checkbox" name="q23_smoker" value="Yes"> Current or previous smoker</label>
+            <label><input id="history_allergy" type="checkbox" name="q24_allergies" value="Yes"> Known allergies</label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Current medication</legend>
+          <div class="grid">
+            <label>Medication 1
+              <input id="medication_1" name="q25_medication1">
+            </label>
+            <label>Medication 2
+              <input id="medication_2" name="q26_medication2">
+            </label>
+            <label>Medication 3
+              <input id="medication_3" name="q27_medication3">
+            </label>
+            <label>Medication 4
+              <input id="medication_4" name="q28_medication4">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Doctor details</legend>
+          <div class="grid">
+            <label>Doctor first name
+              <input id="doctor_first_29" name="q29_doctorName[first]">
+            </label>
+            <label>Doctor surname
+              <input id="doctor_last_30" name="q30_doctorName[last]">
+            </label>
+            <label>Practice number
+              <input id="practice_31" name="q31_practiceNumber">
+            </label>
+            <label>Speciality
+              <input id="speciality_32" name="q32_speciality">
+            </label>
+            <label>Doctor email
+              <input id="doctor_email_33" name="q33_doctorEmail" type="email">
+            </label>
+            <label>Doctor telephone
+              <input id="doctor_phone_34" name="q34_doctorTelephone" type="tel">
+            </label>
+          </div>
+        </fieldset>
+
+        <fieldset>
+          <legend>Declaration</legend>
+          <div class="options">
+            <label><input id="confirm_information" type="checkbox" name="q35_confirmInformation" value="Yes"> I confirm that the information provided is complete and correct.</label>
+            <label><input id="manual_review" type="checkbox" name="q36_manualReview" value="Yes"> I have reviewed the information before submission.</label>
+          </div>
+        </fieldset>
+
+        <div class="actions">
+          <button type="submit">Submit manually</button>
+        </div>
+      </form>
+    </main>
+
+    <script>
+      document.getElementById("medical-intake-form").addEventListener("submit", (event) => {
+        event.preventDefault();
+        alert("Manual submit clicked. The QIQA extension must not submit this form automatically.");
+      });
+    </script>
+  </body>
+</html>
