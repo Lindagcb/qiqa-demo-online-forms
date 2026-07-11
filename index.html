@@ -41,6 +41,13 @@
         text-transform: uppercase;
       }
 
+      .heroTop {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 18px;
+      }
+
       .brandMark {
         width: 34px;
         height: 34px;
@@ -129,6 +136,32 @@
         text-decoration: none;
       }
 
+      .loginActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+
+      .loginActions a,
+      .loginActions button {
+        margin-top: 0;
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 999px;
+        background: rgba(255, 255, 255, 0.12);
+        color: #fff;
+        padding: 9px 13px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        text-decoration: none;
+        cursor: pointer;
+      }
+
+      .loginActions button {
+        display: none;
+      }
+
       .note {
         margin-top: 18px;
         border: 1px solid #bfdbfe;
@@ -156,7 +189,13 @@
   </head>
   <body>
     <section class="hero">
-      <div class="brand"><span class="brandMark">Q</span> QIQA demo forms</div>
+      <div class="heroTop">
+        <div class="brand"><span class="brandMark">Q</span> QIQA demo forms</div>
+        <div class="loginActions">
+          <a id="loginLink" href="login.html">Demo login</a>
+          <button id="logoutButton" type="button">Log out demo</button>
+        </div>
+      </div>
       <div class="heroContent">
         <p class="eyebrow">Chrome extension testing</p>
         <h1>Online HTML form demo pages</h1>
@@ -189,5 +228,20 @@
         These pages are only static HTML test forms. They do not submit data to a server, and the submit buttons are manually intercepted for demonstration.
       </div>
     </main>
+    <script>
+      const isAuthenticated = sessionStorage.getItem("qiqaDemoAuthenticated") === "true";
+      const loginLink = document.getElementById("loginLink");
+      const logoutButton = document.getElementById("logoutButton");
+      if (isAuthenticated) {
+        loginLink.textContent = `Signed in as ${sessionStorage.getItem("qiqaDemoUser") || "demo user"}`;
+        loginLink.href = "target-form.html";
+        logoutButton.style.display = "inline-flex";
+      }
+      logoutButton.addEventListener("click", () => {
+        sessionStorage.removeItem("qiqaDemoAuthenticated");
+        sessionStorage.removeItem("qiqaDemoUser");
+        window.location.reload();
+      });
+    </script>
   </body>
 </html>

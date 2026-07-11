@@ -3,6 +3,11 @@
   <head>
     <meta charset="utf-8">
     <title>Medical Aid Online Form Test</title>
+    <script>
+      if (sessionStorage.getItem("qiqaDemoAuthenticated") !== "true") {
+        window.location.replace(`login.html?next=${encodeURIComponent(window.location.pathname.split("/").pop() || "target-form.html")}`);
+      }
+    </script>
     <style>
       :root {
         color-scheme: light;

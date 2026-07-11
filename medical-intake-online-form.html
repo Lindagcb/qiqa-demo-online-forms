@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>QIQA Online Medical Intake Test Form</title>
+    <script>
+      if (sessionStorage.getItem("qiqaDemoAuthenticated") !== "true") {
+        window.location.replace(`login.html?next=${encodeURIComponent(window.location.pathname.split("/").pop() || "medical-intake-online-form.html")}`);
+      }
+    </script>
     <style>
       :root {
         color-scheme: light;
