@@ -72,6 +72,26 @@
         font-weight: 800;
       }
 
+      .heroActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .logoutButton {
+        border: 1px solid rgba(255, 255, 255, 0.32);
+        border-radius: 999px;
+        background: #fff;
+        color: #0b4d89;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
       .heroContent {
         max-width: 760px;
         margin-top: 48px;
@@ -333,7 +353,10 @@
           <span class="brandMark">Q</span>
           QIQA test form
         </div>
-        <span class="statusPill">HTML form filling demo</span>
+        <div class="heroActions">
+          <span class="statusPill">Signed in to demo</span>
+          <button id="logoutButton" class="logoutButton" type="button">Log out</button>
+        </div>
       </div>
       <div class="heroContent">
         <p class="eyebrow">Discovery CIB workflow</p>
@@ -573,6 +596,12 @@
       document.querySelector("form").addEventListener("submit", (event) => {
         event.preventDefault();
         alert("Manual submit clicked. The extension should never trigger this.");
+      });
+
+      document.getElementById("logoutButton").addEventListener("click", () => {
+        sessionStorage.removeItem("qiqaDemoAuthenticated");
+        sessionStorage.removeItem("qiqaDemoUser");
+        window.location.href = "login.html?next=target-form.html";
       });
     </script>
   </body>

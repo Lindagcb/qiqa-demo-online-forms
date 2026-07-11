@@ -73,6 +73,26 @@
         font-weight: 800;
       }
 
+      .heroActions {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .logoutButton {
+        border: 1px solid rgba(255, 255, 255, 0.34);
+        border-radius: 999px;
+        background: #fff;
+        color: #0f5d72;
+        padding: 8px 12px;
+        font: inherit;
+        font-size: 12px;
+        font-weight: 900;
+        cursor: pointer;
+      }
+
       .heroContent {
         max-width: 760px;
         margin-top: 48px;
@@ -286,7 +306,10 @@
           <span class="brandMark">Q</span>
           QIQA test form
         </div>
-        <span class="statusPill">External HTML form demo</span>
+        <div class="heroActions">
+          <span class="statusPill">Signed in to demo</span>
+          <button id="logoutButton" class="logoutButton" type="button">Log out</button>
+        </div>
       </div>
       <div class="heroContent">
         <p class="eyebrow">Online form intake workflow</p>
@@ -456,6 +479,12 @@
       document.getElementById("medical-intake-form").addEventListener("submit", (event) => {
         event.preventDefault();
         alert("Manual submit clicked. The QIQA extension must not submit this form automatically.");
+      });
+
+      document.getElementById("logoutButton").addEventListener("click", () => {
+        sessionStorage.removeItem("qiqaDemoAuthenticated");
+        sessionStorage.removeItem("qiqaDemoUser");
+        window.location.href = "login.html?next=medical-intake-online-form.html";
       });
     </script>
   </body>
