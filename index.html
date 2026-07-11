@@ -4,6 +4,11 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>QIQA Online Form Demo Pages</title>
+    <script>
+      if (sessionStorage.getItem("qiqaDemoAuthenticated") !== "true") {
+        window.location.replace("login.html?next=index.html");
+      }
+    </script>
     <style>
       :root {
         color-scheme: light;
